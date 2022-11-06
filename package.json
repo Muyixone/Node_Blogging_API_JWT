@@ -1,0 +1,11 @@
+{
+  "name": "node_blogging_api_jwt",
+  "version": "1.0.0",
+  "description": "Blogging API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Muyixone",
+  "license": "ISC"
+}
