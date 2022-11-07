@@ -74,26 +74,6 @@ exports.getAllBlogs = tryCatchErr(async (req, res, next) => {
  */
 ////////////////////////////////////////////////////////////////
 exports.creatBlog = tryCatchErr(async (req, res, next) => {
-  //   const { title, description, tags, body } = req.body;
-
-  //   const newBlog = new blogModel({
-  //     title,
-  //     description: description || title,
-  //     tags,
-  //     author: req.user._id,
-  //     body,
-  //   });
-
-  //   const createdBlog = await newBlog.save();
-
-  //   req.user.articles = req.user.articles.concat(createdBlog.id);
-  //   await req.user.save();
-
-  //   return res.status(200).json({
-  //     status: 'success',
-  //     data: createdBlog,
-  //   });
-
   const { title, description, state, tags, body } = req.body;
 
   if (!title || !description || !state || !tags || !body) {

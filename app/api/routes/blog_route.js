@@ -18,8 +18,8 @@ router.route('/:id').get(getBlogById);
 
 router
   .route('/blog_aticles/:id')
-  .get(getUserArticle)
-  .put(updateBlog)
-  .delete(deleteBlog);
+  .get(authenticate, getUserArticle)
+  .put(authenticate, updateBlog)
+  .delete(authenticate, deleteBlog);
 
 module.exports = router;
