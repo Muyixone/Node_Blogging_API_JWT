@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
 const users = require('./app/api/routes/user_routes');
+const blogs = require('./app/api/routes/blog_route');
 const CONFIG = require('./app/api/config/config');
 const connectToDb = require('./app/api/Db/mongodb');
 const errorHandler = require('./app/api/controllers/error_controllers');
@@ -17,11 +18,20 @@ app.use(bodyParser.json());
 connectToDb();
 
 app.use('/api/users', users);
+app.use('/api/blogs', blogs);
 
-app.get('/', function (req, res) {
-  res.json({ tutorial: 'Build REST API with node.js' });
+app.get('/api', function (req, res) {
+  return res
+    .status(201)
+    .json({ test_page: 'A step further to becoming a worldclass developer' });
 });
 
+//Undefined route error handler
+app.all('*', function (req, res, next) {
+  next(new serverError('Undefined route, page not found.', 404));
+});
+
+//HANDLE ERROR
 app.use(errorHandler);
 
 app.listen(CONFIG.PORT, () => {
