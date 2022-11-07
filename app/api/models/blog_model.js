@@ -16,7 +16,8 @@ const BlogPostSchema = new Schema(
       required: [true, 'Description missing, provide a description'],
     },
     author: {
-      type: String,
+      type: Schema.Types.ObjectId,
+      ref: 'User',
       required: true,
     },
     state: {
@@ -40,14 +41,15 @@ const BlogPostSchema = new Schema(
       type: String,
       required: [true, 'Body is needed'],
     },
-    user: {
-      type: Schema.Types.ObjectId,
-      ref: 'User',
-    },
+    // user: {
+    //   type: Schema.Types.ObjectId,
+    //   ref: 'User',
+    // },
   },
   {
     timestamps: true,
   }
 );
 
-module.exports = mongoose.model('BlogPost', BlogPostSchema);
+const Blog = mongoose.model('BlogPost', BlogPostSchema);
+module.exports = Blog;

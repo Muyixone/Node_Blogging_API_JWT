@@ -31,13 +31,13 @@ exports.createUser = tryCatchErr(async (req, res, next) => {
     password: req.body.password,
   });
 
-  console.log(user);
+  //console.log(user);
   const token = signInToken(user._id);
   res.status(200).json({
     status: 'success',
     token,
     data: {
-      user,
+      user: user,
     },
   });
 });

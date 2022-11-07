@@ -12,7 +12,7 @@ const { authenticate } = require('../controllers/users_controller');
 
 const router = express.Router();
 
-router.route('/').get(getAllBlogs).post(creatBlog);
+router.route('/').get(getAllBlogs).post(authenticate, creatBlog);
 
 router.route('/:id').get(getBlogById);
 
