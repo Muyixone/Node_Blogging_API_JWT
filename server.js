@@ -8,6 +8,7 @@ const blogs = require('./app/api/routes/blog_route');
 const CONFIG = require('./app/api/config/config');
 const connectToDb = require('./app/api/Db/mongodb');
 const errorHandler = require('./app/api/controllers/error_controllers');
+const serverError = require('././app/api/utilities/serverError');
 
 const app = express();
 app.use(logger('dev'));
